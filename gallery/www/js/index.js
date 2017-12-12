@@ -19,6 +19,28 @@
 var app = {
     // Application Constructor
     initialize: function() {
+		
+			HomeView.prototype.template = Handlebars.compile($("#home-tpl").html());
+			DownloadView.prototype.template = Handlebars.compile($("#dload-tpl").html());
+			SearchView.prototype.template = Handlebars.compile($("#search-tpl").html());
+				
+			(function () {
+					router.addRoute('', function(app) {
+						$('body').html(new HomeView().render().$el);
+						console.log("routerh");
+					});
+					router.addRoute('Search', function(app) {
+						$('body').html(new SearchView().render().$el);
+						console.log("routers");
+					});
+					router.addRoute('Download', function(app) {
+						$('body').html(new DownloadView().render().$el);
+						console.log("routerd");
+					});
+					router.start();
+					console.log("router");
+				}) ();	
+		
         document.addEventListener('deviceready', this.onDeviceReady.bind(this), false);
     },
 
@@ -27,32 +49,7 @@ var app = {
     // Bind any cordova events here. Common events are:
     // 'pause', 'resume', etc.
     onDeviceReady: function() {
-        this.receivedEvent('deviceready');
-		
-		HomeView.prototype.template = Handlebars.compile($("#home-tpl").html());
-		DownloadView.prototype.template = Handlebars.compile($("#dload-tpl").html());
-		SearchView.prototype.template = Handlebars.compile($("#search-tpl").html());
-        //ImageListView.prototype.template = Handlebars.compile($("#image-list-tpl").html());
-		//ImageView.prototype.template = Handlebars.compile($("#image-tpl").html());
-		
-		
-		(function () {
-				router.addRoute('', function() {
-					$('body').html(new HomeView().render().$el);
-					console.log("routerh");
-				});
-				router.addRoute('Search', function() {
-					$('body').html(new SearchView().render().$el);
-					console.log("routers");
-				});
-				router.addRoute('Download', function() {
-					$('body').html(new DownloadView().render().$el);
-					console.log("routerd");
-				});
-				router.start();
-				console.log("router");
-			}) ();	
-		
+        this.receivedEvent('deviceready');	
     },
 
     // Update DOM on a Received Event

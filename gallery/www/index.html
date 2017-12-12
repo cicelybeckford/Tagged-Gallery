@@ -36,7 +36,8 @@
         <title>Hello World</title>
     </head>
     <body>
-        <div class="app" id="home-tpl" type="text/template">
+        <script id="home-tpl" type="text/template">
+			<div class = "app">
             <h1>Home</h1>
             <div id="deviceready" class="blink">
                 <p class="event listening">Connecting to Device</p>
@@ -44,24 +45,23 @@
             </div>
 			<button id = "searchView">Search View</button>
 			<button id = "downloadView">Download View</button>
-        </div>
+		</div>
+        </script>
 		
 		<script id="dload-tpl" type="text/template">
-			<header class="app">
 		        <a class="btn btn-link" href="#">
 		            <span class="icon icon-left-nav"></span>
 		        </a>
-				<h1 class="title">Download</h1>
-			</header>
-            <div id="deviceready" class="blink">
-                <p class="event listening">Connecting to Device</p>
-                <p class="event received">Device is Ready</p>
-            </div>
-			<div class="bar bar-header-secondary">
-				 URL: <input class='url' type="text" placeholder="URL"/><br>
-				 Tag: <input class='tag' type="text" placeholder="Tag"/>
+			<div class = "app">
+				<h1>Download</h1>
+           	 	<div id="deviceready" class="blink">
+                	<p class="event listening">Connecting to Device</p>
+                	<p class="event received">Device is Ready</p>
+            	</div>
+				URL: <input class='url' type="text" placeholder="URL"/><br>
+				Tag: <input class='tag' type="text" placeholder="Tag"/><br>
 				<button id = "downloadFile">DOWNLOAD</button>
-			</div>
+			 </div>
 		</script>
 		
 		<script id="search-tpl" type="text/template">
@@ -82,7 +82,7 @@
 		    {{#each this}}
 		    	<li>
 		    		<a href="#images/{{ key }}">
-		    			<div> { File Name } </div>
+		    			<div> {{ key }} </div>
 		    		</a>
 		    	</li>
 		    {{/each}}

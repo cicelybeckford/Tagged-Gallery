@@ -1,4 +1,4 @@
-var DownloadView = function() {
+var DownloadView = function(app) {
     this.initialize = function() {
         this.$el = $('<div/>');
 		this.$el.on('click', '#downloadFile', downloadFile);
@@ -11,9 +11,11 @@ var DownloadView = function() {
 	function downloadFile() {
 		var fileTransfer = new FileTransfer();
 		var uri = encodeURI($('.url').val().trim());
-		var fileURL = cordova.file.cacheDirectory + $('.tag').val().trim().toLowerCase(); // where to save
+		var tag = $('.tag').val().trim().toLowerCase();
+		var fileURL = cordova.file.cacheDirectory + tag; // where to save
 		fileTransfer.download(uri, fileURL, function(entry) {
 			console.log("download complete: " + entry.toURL());
+			localStorage.setItem(tag, fileURL);
 		},
 		function(error) {
 			console.log("download error source " + error.source);

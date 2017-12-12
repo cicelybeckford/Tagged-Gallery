@@ -1,4 +1,4 @@
-var HomeView = function() {
+var HomeView = function(app) {
     this.initialize = function() {
         this.$el = $('<div/>');
         this.$el.on('click', '#searchView', routeSearch);
