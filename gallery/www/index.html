@@ -36,20 +36,34 @@
         <title>Hello World</title>
     </head>
     <body>
-        <div class="app">
-            <div id="deviceready" class="blink">
-                <p class="event listening">Connecting to Device</p>
-                <p class="event received">Device is Ready</p>
-            </div>
-        </div>
-		
-		<script id="home-tpl" type="text/template">
+		<script class = "app" id="home-tpl" type="text/template">
 			<header class = "app">
 				<h1 class="title">Home</h1>
 			</header>
+	        <div class="app">
+	            <div id="deviceready" class="blink">
+	                <p class="event listening">Connecting to Device</p>
+	                <p class="event received">Device is Ready</p>
+	            </div>
+				<button id = "Home" >Home</button>
+	        </div>
 			<div >
 				<button id = "searchView">Search View</button>
 				<button id = "downloadView">Download View</button>
+			</div>
+		</script>
+		
+		<script id="dload-tpl" type="text/template">
+			<header class="app">
+		        <a class="btn btn-link" href="#">
+		            <span class="icon icon-left-nav"></span>
+		        </a>
+				<h1 class="title">Download</h1>
+			</header>
+			<div class="bar bar-header-secondary">
+				 URL: <input class='url' type="text" placeholder="URL"/><br>
+				 Tag: <input class='tag' type="text" placeholder="Tag"/>
+				<button id = "downloadFile">DOWNLOAD</button>
 			</div>
 		</script>
 		
@@ -66,19 +80,29 @@
 			<div class="content"></div>
 		</script>
 		
-		<script id="dload-tpl" type="text/template">
-			<header class="app">
-		        <a class="btn btn-link" href="#">
-		            <span class="icon icon-left-nav"></span>
-		        </a>
-				<h1 class="title">Search</h1>
-			</header>
-			<div class="bar bar-header-secondary">
-				 URL: <input class='url' type="text" placeholder="URL"/><br>
-				 Tag: <input class='tag' type="text" placeholder="Tag"/>
-				<button id = "downloadFile">DOWNLOAD</button>
-			</div>
+		<script id="image-list-tpl" type="text/template">
+		    <ul id = "list">
+		    {{#each this}}
+		    	<li>
+		    		<a href="#images/{{ key }}">
+		    			<div> { File Name } </div>
+		    		</a>
+		    	</li>
+		    {{/each}}
+		    </ul>
 		</script>
+		
+		<script id="employee-tpl" type="text/template">
+		      <header class="bar bar-nav">
+		          <a class="btn btn-link btn-nav pull-left" href="#">
+		              <span class="icon icon-left-nav"></span>
+		          </a>
+		          <h1 class="title">Employee</h1>
+		      </header>
+		      <div>
+		          <img src= { URL }>
+		      </div>
+		  </script>
 		
 		<script type="text/javascript" src="js/SearchView.js"></script>
 		<script type="text/javascript" src="js/DownloadView.js"></script>

@@ -28,6 +28,29 @@ var app = {
     // 'pause', 'resume', etc.
     onDeviceReady: function() {
         this.receivedEvent('deviceready');
+		
+		HomeView.prototype.template = Handlebars.compile($("#home-tpl").html());
+		DownloadView.prototype.template = Handlebars.compile($("#dload-tpl").html());
+		SearchView.prototype.template = Handlebars.compile($("#search-tpl").html());
+        ImageListView.prototype.template = Handlebars.compile($("#image-list-tpl").html());
+		ImageView.prototype.template = Handlebars.compile($("#image-tpl").html());
+		
+		//document.getElementById("search").addEventListener("click", search);
+		//document.getElementById("downloadFile").addEventListener("click", downloadFile);
+		
+		var service = new TaggedGallery();
+	    service.initialize().done(function () {
+			router.addRoute('', function() {
+				$('body').html(new HomeView(service).render().$el);
+			});
+			router.addRoute('Search', function() {
+				$('body').html(new SearchNameView(service).render().$el);
+			});
+			router.addRoute('Download', function() {
+				$('body').html(new SearchDepView(service).render().$el);
+			});
+			router.start();
+	    });
     },
 
     // Update DOM on a Received Event
