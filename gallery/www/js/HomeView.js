@@ -4,10 +4,10 @@ var HomeView = function() {
         this.$el.on('click', '#search', routeSearch);
 		this.$el.on('click', '#download', routeDload);
 	};
-	/*this.render = function() {
-   		this.$el.html(this.template(employee));
+	this.render = function() {
+   		this.$el.html(this.template(service));
    	 	return this;
-	};*/
+	};
 	function routeSearch () {
    	 	router.load('Search');
 	}

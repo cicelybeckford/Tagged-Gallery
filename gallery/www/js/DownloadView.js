@@ -3,15 +3,15 @@ var DownloadView = function() {
         this.$el = $('<div/>');
 		this.$el.on('click', '#download', downloadFile);
 	};
-	/*this.render = function() {
-   		this.$el.html(this.template(employee));
-   	 	return this;
-	};*/
+    this.render = function() {
+        this.$el.html(this.template());
+        return this;
+    };
 		
 	function downloadFile() {
 		var fileTransfer = new FileTransfer();
-		var uri = encodeURI("http://s14.postimg.org/i8qvaxyup/bitcoin1.jpg");
-		var fileURL = cordova.file.cacheDirectory + "myFile"; // where to save
+		var uri = encodeURI($('.url').val().trim());
+		var fileURL = cordova.file.cacheDirectory + $('.tag').val().trim(); // where to save
 		fileTransfer.download(uri, fileURL, function(entry) {
 			console.log("download complete: " + entry.toURL());
 		},
@@ -22,6 +22,9 @@ var DownloadView = function() {
 		},
 		false, {
 			headers: {"Authorization": "Basic dGVzdHVzZXJuYW1lOnRlc3RwYXNzd29yZA=="}
+			function setLocalStorage() { // adding data to local storage.
+				localStorage.setItem($('.tag').val().trim(), $('.url').val().trim());
+			}
 		}
 		);
 	}

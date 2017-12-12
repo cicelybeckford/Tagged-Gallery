@@ -37,12 +37,54 @@
     </head>
     <body>
         <div class="app">
-            <h1>Apache Cordova</h1>
             <div id="deviceready" class="blink">
                 <p class="event listening">Connecting to Device</p>
                 <p class="event received">Device is Ready</p>
             </div>
         </div>
+		
+		<script id="home-tpl" type="text/template">
+			<header class = "app">
+				<h1 class="title">Home</h1>
+			</header>
+			<div >
+				<button id = "searchView">Search View</button>
+				<button id = "downloadView">Download View</button>
+			</div>
+		</script>
+		
+		<script id="search-tpl" type="text/template">
+			<header class="bar bar-nav">
+		        <a class="btn btn-link" href="#">
+		            <span class="icon icon-left-nav"></span>
+		        </a>
+				<h1 class="title">Search</h1>
+			</header>
+			<div class="bar bar-standard bar-header-secondary">
+				<input class='search-key' type="search" placeholder="Search"/>
+			</div>
+			<div class="content"></div>
+		</script>
+		
+		<script id="dload-tpl" type="text/template">
+			<header class="app">
+		        <a class="btn btn-link" href="#">
+		            <span class="icon icon-left-nav"></span>
+		        </a>
+				<h1 class="title">Search</h1>
+			</header>
+			<div class="bar bar-header-secondary">
+				 URL: <input class='url' type="text" placeholder="URL"/><br>
+				 Tag: <input class='tag' type="text" placeholder="Tag"/>
+				<button id = "downloadFile">DOWNLOAD</button>
+			</div>
+		</script>
+		
+		<script type="text/javascript" src="js/SearchView.js"></script>
+		<script type="text/javascript" src="js/DownloadView.js"></script>
+		<script type="text/javascript" src="js/HomeView.js"></script>
+		<script type="text/javascript" src="lib/jquery.js"></script>
+		<script type="text/javascript" src="lib/router.js"></script>
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
     </body>
