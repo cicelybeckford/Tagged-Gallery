@@ -1,4 +1,4 @@
-var DownloadView = function() {
+var SearchView = function() {
     this.initialize = function() {
         this.$el = $('<div/>');
 		this.$el.on('keyup', '.search-key', imageSearch);
