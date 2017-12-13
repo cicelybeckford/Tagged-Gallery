@@ -3,7 +3,6 @@ var SearchView = function(app) {
         this.$el = $('<div/>');
 		this.$el.on('keyup', '.search-key', imageSearch);
 		//this.$el.on('click', '#image-list-tpl li', readFile);
-		console.log("start");
 	};
     this.render = function() {
         this.$el.html(this.template());
@@ -14,12 +13,9 @@ var SearchView = function(app) {
 	function imageSearch() {
 		
 		var search_key =  $('.search-key').val().trim().toLowerCase();
-		console.log(search_key);
 		for (var i = 0; i < localStorage.length; i++) {
-			console.log("enter");
 			var key = localStorage.key(i);
 			if ((search_key.indexOf(key)) > -1){
-				console.log("search");
 				var value = localStorage.getItem(localStorage.key(i));
 				readFile(value);
 			}
@@ -44,7 +40,6 @@ var SearchView = function(app) {
 						var image = this.result;
 						a.textContent = value;
 						a.setAttribute('href', image);
-						console.log(a);
 						$('.content', this.$el).append(a);
 						// $('.content', this.$el).html(imageListView.$el);
 						//imageListView.setImages(image);

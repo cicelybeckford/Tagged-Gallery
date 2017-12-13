@@ -33,28 +33,37 @@
         <meta name="msapplication-tap-highlight" content="no">
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
         <link rel="stylesheet" type="text/css" href="css/index.css">
+	    <link href="assets/ratchet/css/ratchet.css" rel="stylesheet">
+	    <link href="assets/css/styles.css" rel="stylesheet">
         <title>Hello World</title>
     </head>
     <body>
-        <script id="home-tpl" type="text/template">
+		
+		<script script id="home-tpl" type="text/template" >
 			<div class = "app">
             <h1>Home</h1>
+            <div id="deviceready" class="blink">
+                <p class="event listening">Connecting to Device</p>
+                <p class="event received">Device is Ready</p>
+            </div>
 			<button id = "searchView">Search View</button>
 			<button id = "downloadView">Download View</button>
-		</div>
-        </script>
+		   </div>
+	   </script>
+
 		
 		<script id="dload-tpl" type="text/template">
-	            <a class="btn btn-link btn-nav pull-left" href="#">
-	                <span class="icon icon-left-nav"></span>
-	            </a>
-					<header>
-						<h1 class="title">Download</h1>
-					</header>
-				<input class='url' type="text" placeholder="URL"/><br>
-				<input class='tag' type="text" placeholder="Tag"/><br>
+            <a class="btn btn-link" href="#">
+                <span class="icon icon-left-nav"></span>
+            </a>
+				<header>
+					<h1 class="title">Download</h1>
+				</header>
+				<div>
+					 <input class='url' type="text" placeholder="URL"/><br>
+					 <input class='tag' type="text" placeholder="Tags"/><br>
 				<button id = "downloadFile">DOWNLOAD</button>
-			 </div>
+				</div>
 		</script>
 		
 		<script id="search-tpl" type="text/template">
@@ -83,16 +92,13 @@
 		</script>
 		
 		<script id="image-tpl" type="text/template">
-		      <header class="bar bar-nav">
-		          <a class="btn btn-link" href="#">
-		              	<button>Back</button>
-		          </a>
-		          <h1 class="title">Employee</h1>
-		      </header>
-		      <div>
-		          <img src= {{URL}}>
-		      </div>
-		  </script>
+		        <a href="#images/{{ id }}">
+		             <img class="media-object pull-left" src="{{image}}">
+		             <div class="media-body">
+		                 {{image}}} 
+		            </div>
+		       </a>
+		</script>
 		
 		<script type="text/javascript" src="js/SearchView.js"></script>
 		<script type="text/javascript" src="js/DownloadView.js"></script>

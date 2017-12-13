@@ -20,10 +20,10 @@
     -webkit-tap-highlight-color: rgba(0,0,0,0); /* make transparent link selection, adjust last value opacity 0 to 1.0 */
 }
 
-body {
+/*body {
     -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
-    -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
-    -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
+   /* -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
+  /*  -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' 
     background-color:#E4E4E4;
     background-image:linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
     background-image:-webkit-linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
@@ -113,4 +113,41 @@ h1 {
     animation:fade 3000ms infinite;
     -webkit-animation:fade 3000ms infinite;
 }
+
+.icon {
+  display: inline-block;
+  font-family: Ratchicons;
+  font-size: 24px;
+  line-height: 1;
+  text-decoration: none;
+
+  -webkit-font-smoothing: antialiased;
+}
+
+.icon-left-nav:before {
+  content: '\e82d';
+}
+
+/*.bar {
+  position: fixed;
+  right: 0;
+  left: 0;
+  z-index: 10;
+  height: 44px;
+  padding-right: 10px;
+  padding-left: 10px;
+  background-color: white;
+  border-bottom: 1px solid #ddd;
+
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+}*/
+
+/*.bar-header-secondary {
+  top: 44px;
+}
+
+.bar-header-secondary ~ .content {
+  padding-top: 88px;
+}*/
 
