@@ -45,6 +45,7 @@ var DownloadView = function(app) {
 						alert('Write failed: ' + e.toString());
 					};
 					var blob = new Blob([url], {type: 'text/plain'});
+					console.log(url);
 					fileWriter.write(blob);
 				}, errorCallback);
 			}, errorCallback);
