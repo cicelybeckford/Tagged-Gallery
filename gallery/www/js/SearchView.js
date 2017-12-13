@@ -2,7 +2,7 @@ var SearchView = function(app) {
     this.initialize = function() {
         this.$el = $('<div/>');
 		this.$el.on('keyup', '.search-key', imageSearch);
-		this.$el.on('click', '.')
+		this.$el.on('click', '#image', readFile);
 		console.log("start");
 		imageListView = new ImageListView();
 	};
@@ -13,12 +13,12 @@ var SearchView = function(app) {
     };
 		
 	function imageSearch() {
-		var search_key =  $('.search-key').val().trim();
+		var search_key =  $('.search-key').val().trim().toLowerCase();
 		console.log(search_key);
-		console.log(localStorage.key(0));
 		for (var i = 0; i < localStorage.length; i++) {
 			console.log("enter");
-			if ((search_key.toLowerCase().indexOf(localStorage.key(i)) > -1)){
+			var key = localStorage.key(i);
+			if ((search_key.indexOf(key)) > -1){
 				console.log("search");
 				var value = localStorage.getItem(localStorage.key(i));
 				console.log(value);
@@ -26,6 +26,24 @@ var SearchView = function(app) {
 		 		imageListView.setImages(value);
 			}
 		}
+	}
+	
+	function readFile(value) {
+		var type = window.TEMPORARY;
+		var size = 5*1024*1024;
+		window.requestFileSystem(type, size, successCallback, errorCallback);
+		function successCallback(fs) {
+			fs.root.getFile(value, {}, function(fileEntry) {
+				fileEntry.file(function(file) {
+					var reader = new FileReader();
+					reader.onloadend = function(e) {
+						var image = this.result;
+					};
+					reader.readAsText(file);
+				}, errorCallback);
+			}, errorCallback);
+		}
+		function errorCallback(error) {alert("ERROR: " + error.code)}
 	}
 	
 	this.initialize();

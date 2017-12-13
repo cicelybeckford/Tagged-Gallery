@@ -50,14 +50,10 @@
 		
 		<script id="dload-tpl" type="text/template">
 		        <a class="btn btn-link" href="#">
-		            <span class="icon icon-left-nav"></span>
+		            	<button>Back</button>
 		        </a>
 			<div class = "app">
 				<h1>Download</h1>
-           	 	<div id="deviceready" class="blink">
-                	<p class="event listening">Connecting to Device</p>
-                	<p class="event received">Device is Ready</p>
-            	</div>
 				URL: <input class='url' type="text" placeholder="URL"/><br>
 				Tag: <input class='tag' type="text" placeholder="Tag"/><br>
 				<button id = "downloadFile">DOWNLOAD</button>
@@ -67,7 +63,7 @@
 		<script id="search-tpl" type="text/template">
 			<header class="bar bar-nav">
 		        <a class="btn btn-link" href="#">
-		            <span class="icon icon-left-nav"></span>
+		            	<button>Back</button>
 		        </a>
 				<h1 class="title">Search</h1>
 			</header>
@@ -81,18 +77,17 @@
 		    <ul id = "list">
 		    {{#each this}}
 		    	<li>
-		    		<a href="#images/{{ key }}">
-		    			<div> {{ key }} </div>
+		    		<a href="#images/{{ value }}">
 		    		</a>
 		    	</li>
 		    {{/each}}
 		    </ul>
 		</script>
 		
-		<script id="employee-tpl" type="text/template">
+		<script id="image-tpl" type="text/template">
 		      <header class="bar bar-nav">
-		          <a class="btn btn-link btn-nav pull-left" href="#">
-		              <span class="icon icon-left-nav"></span>
+		          <a class="btn btn-link" href="#">
+		              	<button>Back</button>
 		          </a>
 		          <h1 class="title">Employee</h1>
 		      </header>
