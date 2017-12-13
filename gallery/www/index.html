@@ -45,39 +45,41 @@
         </script>
 		
 		<script id="dload-tpl" type="text/template">
-		        <a class="btn btn-link" href="#">
-		            	<button>Back</button>
-		        </a>
-			<div class = "app">
-				<h1>Download</h1>
-				URL: <input class='url' type="text" placeholder="URL"/><br>
-				Tag: <input class='tag' type="text" placeholder="Tag"/><br>
+	            <a class="btn btn-link btn-nav pull-left" href="#">
+	                <span class="icon icon-left-nav"></span>
+	            </a>
+					<header>
+						<h1 class="title">Download</h1>
+					</header>
+				<input class='url' type="text" placeholder="URL"/><br>
+				<input class='tag' type="text" placeholder="Tag"/><br>
 				<button id = "downloadFile">DOWNLOAD</button>
 			 </div>
 		</script>
 		
 		<script id="search-tpl" type="text/template">
-			<header class="bar bar-nav">
-		        <a class="btn btn-link" href="#">
-		            	<button>Back</button>
-		        </a>
-				<h1 class="title">Search</h1>
-			</header>
+		<header class="bar bar-nav">
+	        <a class="btn btn-link" href="#">
+	            	<button>Back</button>
+	        </a>
+			<h1 class="title">Search</h1>
+		</header>
 			<div class="bar bar-standard bar-header-secondary">
 				<input class='search-key' type="search" placeholder="Search"/>
 			</div>
-			<div class="content"></div>
-		</script>
-		
-		<script id="image-list-tpl" type="text/template">
-		    <ul id = "list">
-		    {{#each this}}
-		    	<li>
-		    		<a href="#images/{{ value }}">
-		    		</a>
-		    	</li>
-		    {{/each}}
-		    </ul>
+			<div class="content">
+			    <ul id = "image-list-tpl" class="table-view">
+			        {{#each this}}
+			        <li class="table-view-cell media">
+			            <a href="#images/{{ id }}">
+			                <div class="media-body">
+			                    <p>{{value}}</p>
+			                </div>
+			            </a>
+			        </li>
+			        {{/each}}
+			    </ul>
+			</div>
 		</script>
 		
 		<script id="image-tpl" type="text/template">

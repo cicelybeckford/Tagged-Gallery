@@ -23,6 +23,8 @@ var app = {
 			HomeView.prototype.template = Handlebars.compile($("#home-tpl").html());
 			DownloadView.prototype.template = Handlebars.compile($("#dload-tpl").html());
 			SearchView.prototype.template = Handlebars.compile($("#search-tpl").html());
+			//ImageListView.prototype.template = Handlebars.compile($("#image-list-tpl").html());
+			//ImageView.prototype.template = Handlebars.compile($("#image-tpl").html());
 				
 			(function () {
 					router.addRoute('', function(app) {
